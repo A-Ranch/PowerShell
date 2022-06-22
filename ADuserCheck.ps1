@@ -1,12 +1,12 @@
-$UserList = get-content \\D:\Users\alex.aranchuk\Desktop\Accounts.txt
+$UserList = get-content D:\Users\alex.aranchuk\Desktop\Accounts.txt
 
 Foreach ($Item in $UserList)
  {
 $user = $null
-$user =  Get-aduser -filter {samAccountName -eq $Item}
+$user =  Get-aduser -filter {DisplayName -eq $Item}
 if ($user)
     {
-    $user | Out-File D:\Users\alex.aranchukexistingAccounts.txt -encoding default -append
+    $user | Out-File D:\Users\alex.aranchuk\existingAccounts.txt -encoding default -append
     }
     else
     {
