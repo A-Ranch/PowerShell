@@ -2,7 +2,7 @@
   
 ForEach ($Item in $UserList)
 {
-	$user = $null
+    $user = $null
     $user = Get-AzADUser| Where-Object {$_.DisplayName -eq $Item}
 if ($user)
 	    {
