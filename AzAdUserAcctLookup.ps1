@@ -1,5 +1,10 @@
-﻿$UserList = Get-Content C:\Users\twinz\Desktop\Accounts.txt
-  
+﻿#
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName {string}
+#
+
+$UserList = Get-Content C:\Users\aaranchu\Documents\WindowsPowershell\Accounts.txt  
+
 ForEach ($Item in $UserList)
 {
     $user = $null
