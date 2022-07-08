@@ -1,9 +1,12 @@
-﻿#
+#
 Get-AzSubscription
-Select-AzSubscription -SubscriptionName {string}
+Select-AzSubscription -SubscriptionName [string]
+ Connect-AzAccount -TenantId [string] #OPS
+ 
+$Path=[string]
 #
 
-$UserList = Get-Content C:\Users\aaranchu\Documents\WindowsPowershell\Accounts.txt  
+$UserList = Get-Content $Path.\Accounts.txt 
 
 ForEach ($Item in $UserList)
 {
@@ -11,10 +14,10 @@ ForEach ($Item in $UserList)
     $user = Get-AzADUser| Where-Object {$_.DisplayName -eq $Item}
 if ($user)
 	    {
-		$user | Out-File C:\Users\aaranchu\Desktop\existingAccounts.txt -encoding default -append
+		$user | Out-File $Path\existingAccounts.txt -encoding default -append
 	    }
 	else
 	    {
-			"$item does not exist" | Out-File C:|Users\aaranchu\Desktop\NotExistingAccount.txt -encoding default -append
+			"$item does not exist" | Out-File $Path\NotExistingAccount.txt -encoding default -append
 		}
 }
