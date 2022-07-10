@@ -1,0 +1,8 @@
+$names1 = "C:\names1.txt"
+$names2 = "C:\names2.txt"
+$names3 = "C:\names3.txt"
+
+Get-Content $names1 | ForEach-Object {
+	$names1_Line = $_
+	Get-Content $names2 | Where-Object {$_.Contains($names1_Line)} | Out-File -FilePath $names3 -Append
+}
